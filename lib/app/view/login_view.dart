@@ -5,22 +5,24 @@ import 'package:arq_app/app/viewmodels/login_viewmodel.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class LoginView extends StatefulWidget {
+class LoginView extends ConsumerStatefulWidget {
   const LoginView({super.key});
 
   @override
-  State<LoginView> createState() => _LoginViewState();
+  ConsumerState<LoginView> createState() => _LoginViewState();
 }
 
-class _LoginViewState extends State<LoginView> {
-  final viewmodel = Modular.get<LoginViewmodel>();
+class _LoginViewState extends ConsumerState<LoginView> {
   final _key = GlobalKey<FormState>();
+  final emailController = TextEditingController();
+  final senhaController = TextEditingController();
 
   @override
   void dispose() {
-    viewmodel.emailController.dispose();
-    viewmodel.senhaController.dispose();
+    emailController.dispose();
+    senhaController.dispose();
     super.dispose();
   }
 
@@ -33,6 +35,8 @@ class _LoginViewState extends State<LoginView> {
     final String loginImage = isDarkMode
         ? 'images/login_dark.png'
         : 'images/login_light.png';
+
+    final login = ref.watch(loginProvider);
 
     return SafeArea(
       child: Scaffold(
@@ -72,7 +76,7 @@ class _LoginViewState extends State<LoginView> {
                   SizedBox(height: 20),
 
                   TextoFormComponent(
-                    controller: viewmodel.emailController,
+                    controller: emailController,
                     labelText: 'email',
                     icone: Icons.email_outlined,
                     validator: (value) {
@@ -88,7 +92,7 @@ class _LoginViewState extends State<LoginView> {
                   SizedBox(height: 15),
 
                   TextoFormComponent(
-                    controller: viewmodel.senhaController,
+                    controller: senhaController,
                     labelText: 'password',
                     icone: Icons.lock_outline,
                     validator: (value) {
@@ -123,7 +127,10 @@ class _LoginViewState extends State<LoginView> {
                   ElevatedButton(
                     onPressed: () async {
                       if (_key.currentState!.validate()) {
-                        final response = await viewmodel.logUser();
+                        final response = await login.logUser(
+                          emailController.text.trim(),
+                          senhaController.text.trim(),
+                        );
                         if (response) {
                           Modular.to.pushReplacementNamed('/home');
                         } else {
@@ -135,7 +142,7 @@ class _LoginViewState extends State<LoginView> {
                                   return AlertDialog(
                                     title: Text('Erro ao Logar'),
                                     content: Text(
-                                      'Email ou Senha incorretos, tente novamente ${viewmodel.errorMessage}',
+                                      'Email ou Senha incorretos, tente novamente ${login.errorMessage}',
                                     ),
                                     actions: [
                                       TextButton(
@@ -149,7 +156,7 @@ class _LoginViewState extends State<LoginView> {
                                 } else {
                                   return CupertinoAlertDialog(
                                     title: Text('Erro ao Logar'),
-                                    content: Text(viewmodel.errorMessage),
+                                    content: Text(login.errorMessage),
                                     actions: [
                                       CupertinoDialogAction(
                                         isDefaultAction: true,

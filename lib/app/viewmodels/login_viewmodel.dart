@@ -1,18 +1,15 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/widgets.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class LoginViewmodel {
-  final emailController = TextEditingController();
-  final senhaController = TextEditingController();
-
+ 
   String errorMessage = '';
 
-
-  Future<bool> logUser() async {
+  Future<bool> logUser(String email, String senha) async {
     try {
       await FirebaseAuth.instance.signInWithEmailAndPassword(
-        email: emailController.text.trim(),
-        password: senhaController.text.trim(),
+        email: email,
+        password: senha,
       );
       return true;
     } on FirebaseAuthException catch (e) {
@@ -27,6 +24,8 @@ class LoginViewmodel {
       return false;
     }
   }
-
-  
 }
+
+final loginProvider = Provider<LoginViewmodel>((ref) {
+  return LoginViewmodel();
+});

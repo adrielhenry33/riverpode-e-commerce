@@ -1,5 +1,4 @@
 import 'package:arq_app/app/components/custom_bottom_app_bar_component.dart';
-import 'package:arq_app/app/components/custom_switch_widget.dart';
 import 'package:arq_app/app/components/product_card_component.dart';
 import 'package:arq_app/providers/categorias_providers.dart';
 import 'package:flutter/material.dart';
@@ -35,7 +34,6 @@ class ProductsListView extends ConsumerWidget {
           ),
           SizedBox(width: 10),
 
-          CustomSwitchWidget(),
           SizedBox(width: 10),
         ],
       ),

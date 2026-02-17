@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 
 class CardUserComponent extends StatelessWidget {
   final IconData iconData;
@@ -26,11 +27,7 @@ class CardUserComponent extends StatelessWidget {
 
         color: color,
         child: Padding(
-          padding: const EdgeInsets.only(
-            top: 10,
-            right: 10,
-            left: 10,
-          ),
+          padding: const EdgeInsets.only(top: 10, right: 10, left: 10),
           child: Row(
             children: [
               Icon(iconData, color: Colors.white, size: 30),
@@ -54,7 +51,7 @@ class CardUserComponent extends StatelessWidget {
                       ),
                       maxLines: 2,
                     ),
-                    SizedBox(height: 5,),
+                    SizedBox(height: 5),
                     SizedBox(
                       width: 100,
                       height: 20,
@@ -62,7 +59,9 @@ class CardUserComponent extends StatelessWidget {
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadiusGeometry.circular(5),
                         ),
-                        onPressed: () {},
+                        onPressed: () {
+                          Modular.to.pushNamed('/login');
+                        },
                         color: Colors.white,
                         child: Text(
                           textButton,

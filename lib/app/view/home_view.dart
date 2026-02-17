@@ -1,9 +1,6 @@
 import 'package:arq_app/app/components/custom_bottom_app_bar_component.dart';
 import 'package:arq_app/app/components/custom_card_component.dart';
-import 'package:arq_app/app/viewmodels/home_viewmodel.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_modular/flutter_modular.dart';
-import 'package:flutter/cupertino.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
@@ -13,7 +10,6 @@ class HomeView extends StatefulWidget {
 }
 
 class _HomeViewState extends State<HomeView> {
-  final HomeViewModel viewmodel = Modular.get<HomeViewModel>();
   final _controller = TextEditingController();
 
   @override

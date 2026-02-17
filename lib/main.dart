@@ -13,7 +13,13 @@ void main() async {
 
   runApp(
     ProviderScope(
-      child: ModularApp(module: AppModule(), child: AppWidget()),
+      child: ModularApp(
+        module: AppModule(),
+        child: const AppWidget(),
+      ),
     ),
   );
 }
+
+
+

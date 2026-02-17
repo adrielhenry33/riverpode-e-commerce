@@ -1,8 +1,3 @@
-/*teremos uma paga que sera responsável por toda a pagina do aplicativo 
-e os widgets que não serão tão vistos ou serão componentes do nosso aplicativo 
-*/
-
-import 'package:arq_app/app/viewmodels/app_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
@@ -11,20 +6,13 @@ class AppWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
-    final appController = Modular.get<AppController>();
-    return ValueListenableBuilder<bool>(
-      valueListenable: appController.themeSwitch,
-      builder: (context, isDark, child) {
-        return MaterialApp.router(
-          title: 'Flutter Demo',
-          theme: ThemeData(
-            brightness: isDark ? Brightness.dark : Brightness.light,
-          ),
-          routerDelegate: Modular.routerDelegate,
-          routeInformationParser: Modular.routeInformationParser,
-        );
-      },
+    return MaterialApp.router(
+      title: 'FakeStore App',
+      theme: ThemeData(
+        colorSchemeSeed: Colors.deepPurpleAccent,
+        useMaterial3: true,
+      ),
+      routerConfig: Modular.routerConfig, 
     );
   }
 }
