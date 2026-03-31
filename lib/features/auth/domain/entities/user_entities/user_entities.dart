@@ -6,7 +6,7 @@ class UserEntities extends Equatable {
   final String? nickName;
   final String? picture;
 
-  UserEntities({
+  const UserEntities({
     required this.name,
     required this.email,
     required this.nickName,

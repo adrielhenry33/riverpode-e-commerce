@@ -1,4 +1,5 @@
-import 'package:arq_app/features/auth/domain/entities/UserEntities/user_entities.dart';
+
+import 'package:arq_app/features/auth/domain/entities/user_entities/user_entities.dart';
 
 class UserModel extends UserEntities {
   UserModel({

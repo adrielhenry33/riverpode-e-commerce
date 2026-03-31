@@ -1,4 +1,4 @@
-import 'package:arq_app/features/auth/domain/entities/userentities/user_entities.dart';
+import 'package:arq_app/features/auth/domain/entities/user_entities/user_entities.dart';
 
 abstract class IAuthRepository {
   Future<UserEntities> login(String email, String password);
