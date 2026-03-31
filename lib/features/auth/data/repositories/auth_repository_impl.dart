@@ -69,4 +69,23 @@ class AuthRepositoryImpl implements IAuthRepository {
       throw Exception('Erro inesperado ao registrar');
     }
   }
+
+  @override
+  Future<void> delete() async {
+    try {
+      await _firebaseAuth.currentUser?.delete();
+    } catch (e) {
+      throw Exception('Erro ao excluir a conta. Tente logar novamente');
+    }
+    
+  }
+
+  @override
+  Future<void> resetPassword(String email) async {
+    try {
+      await _firebaseAuth.sendPasswordResetEmail(email: email);
+    } catch (e) {
+      throw Exception('Erro ao enviar e-mail de recuperação');
+    }
+  }
 }

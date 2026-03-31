@@ -2,8 +2,8 @@ import 'package:arq_app/features/auth/domain/entities/user_entities/user_entitie
 
 abstract class IAuthRepository {
   Future<UserEntities> login(String email, String password);
-  Future<UserEntities> register(
-    String email,
-    String password);
+  Future<UserEntities> register(String email, String password);
   Future<void> logout();
+  Future<void> resetPassword(String email);
+  Future<void> delete();
 }
