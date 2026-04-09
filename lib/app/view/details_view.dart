@@ -2,14 +2,15 @@ import 'package:arq_app/app/components/cep_calculator_component.dart';
 import 'package:arq_app/app/components/pop_up_component.dart';
 import 'package:arq_app/app/components/review_component.dart';
 import 'package:arq_app/app/models/cart_product_model.dart';
-import 'package:arq_app/app/models/product_model.dart';
 import 'package:arq_app/app/viewmodels/cart_product_viewmodel.dart';
+import 'package:arq_app/features/products/data/models/product_model.dart';
+import 'package:arq_app/features/products/domain/entities/product_entity.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class DetailsView extends ConsumerStatefulWidget {
-  final ProductModel produto;
+  final ProductEntity produto;
 
   const DetailsView({super.key, required this.produto});
 
@@ -47,7 +48,6 @@ class _DetailsViewState extends ConsumerState<DetailsView> {
             children: [
               IconButton(
                 onPressed: () {
-                  
                   Modular.to.pushNamed('/carrinho');
                 },
                 icon: Icon(
@@ -217,21 +217,20 @@ class _DetailsViewState extends ConsumerState<DetailsView> {
                 child: MaterialButton(
                   minWidth: double.infinity,
                   onPressed: () {
-                      final copy = CartProductModel(
-                        produto: widget.produto,
-                        quantidade: 1,
-                      );
+                    final copy = CartProductModel(
+                      produto: widget.produto,
+                      quantidade: 1,
+                    );
 
-                      ref.read(cartProvider.notifier).addProduct(copy);
+                    ref.read(cartProvider.notifier).addProduct(copy);
 
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(
-                          content: Text('Produto adicionado ao carrinho'),
-                          duration: Duration(seconds: 1),
-                          backgroundColor: Colors.green,
-                        ),
-                      );
-                    
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content: Text('Produto adicionado ao carrinho'),
+                        duration: Duration(seconds: 1),
+                        backgroundColor: Colors.green,
+                      ),
+                    );
                   },
 
                   shape: RoundedRectangleBorder(

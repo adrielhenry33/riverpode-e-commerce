@@ -2,7 +2,6 @@ import 'package:arq_app/features/products/data/models/product_dimensions_model.d
 import 'package:arq_app/features/products/data/models/product_information_model.dart';
 import 'package:arq_app/features/products/data/models/product_review.dart';
 import 'package:arq_app/features/products/domain/entities/product_entity.dart';
-import 'package:arq_app/features/products/domain/entities/product_information_entity.dart';
 
 class ProductModel extends ProductEntity {
   const ProductModel({
