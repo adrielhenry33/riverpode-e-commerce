@@ -64,18 +64,4 @@ class CartProductViewmodel extends StateNotifier<List<CartProductModel>> {
 }
 
 //cerebro           //o que sera retornado
-final cartProvider =
-    StateNotifierProvider<CartProductViewmodel, List<CartProductModel>>(
-      (ref) => CartProductViewmodel(),
-    );
 
-final findOcurrenceProvider = Provider.family<int, int>((ref, id) {
-  final provider = ref.watch(cartProvider);
-
-  try {
-    final ocurrence = provider.firstWhere((p) => p.produto.id == id);
-    return ocurrence.quantidade;
-  } catch (e) {
-    return 0;
-  }
-});
