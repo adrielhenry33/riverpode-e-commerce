@@ -1,4 +1,4 @@
-import 'package:arq_app/app/components/product_card_component.dart';
+import 'package:arq_app/features/products/presentation/view/product_card_component.dart';
 import 'package:arq_app/features/products/presentation/providers/product_providers.dart';
 import 'package:arq_app/features/products/presentation/states/product_state.dart';
 import 'package:flutter/material.dart';

@@ -1,14 +1,14 @@
-import 'package:arq_app/app/components/pop_up_component.dart';
+import 'package:arq_app/features/products/domain/entities/product_entity.dart';
+import 'package:arq_app/features/products/presentation/providers/product_providers.dart';
+import 'package:arq_app/features/products/presentation/view/pop_up_component.dart';
 import 'package:arq_app/app/models/cart_product_model.dart';
-import 'package:arq_app/app/models/product_model.dart';
 import 'package:arq_app/app/viewmodels/cart_product_viewmodel.dart';
-import 'package:arq_app/app/viewmodels/favorites_viewmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class ProductCardComponent extends ConsumerWidget {
-  final ProductModel produto;
+  final ProductEntity produto;
 
   const ProductCardComponent({super.key, required this.produto});
 
@@ -97,7 +97,7 @@ class ProductCardComponent extends ConsumerWidget {
                   onPressed: () {
                     ref
                         .read(favoritesProvider.notifier)
-                        .selectedPrduct(produto);
+                        .toggleFavorite(produto);
                   },
                   icon: isFavorite
                       ? Icon(Icons.favorite)

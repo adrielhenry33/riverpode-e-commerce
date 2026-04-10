@@ -1,5 +1,5 @@
-import 'package:arq_app/app/components/card_carrinho_component.dart';
-import 'package:arq_app/app/components/custom_bottom_app_bar_component.dart';
+import 'package:arq_app/features/products/presentation/view/card_carrinho_component.dart';
+import 'package:arq_app/components/custom_bottom_app_bar_component.dart';
 import 'package:arq_app/app/viewmodels/cart_product_viewmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';

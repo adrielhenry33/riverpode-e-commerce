@@ -1,4 +1,4 @@
-import 'package:arq_app/app/components/texto_form_component.dart';
+import 'package:arq_app/components/texto_form_component.dart';
 import 'package:arq_app/app/viewmodels/registrarion_viewmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';

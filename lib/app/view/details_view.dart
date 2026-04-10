@@ -1,6 +1,6 @@
-import 'package:arq_app/app/components/cep_calculator_component.dart';
-import 'package:arq_app/app/components/pop_up_component.dart';
-import 'package:arq_app/app/components/review_component.dart';
+import 'package:arq_app/features/auth/presentation/views/cep_calculator_component.dart';
+import 'package:arq_app/features/products/presentation/view/pop_up_component.dart';
+import 'package:arq_app/components/review_component.dart';
 import 'package:arq_app/app/models/cart_product_model.dart';
 import 'package:arq_app/app/viewmodels/cart_product_viewmodel.dart';
 import 'package:arq_app/features/products/data/models/product_model.dart';

@@ -1,5 +1,5 @@
-import 'package:arq_app/app/components/custom_bottom_app_bar_component.dart';
-import 'package:arq_app/app/components/custom_card_component.dart';
+import 'package:arq_app/components/custom_bottom_app_bar_component.dart';
+import 'package:arq_app/features/products/presentation/widgets/custom_card_component.dart';
 import 'package:flutter/material.dart';
 
 class HomeView extends StatefulWidget {

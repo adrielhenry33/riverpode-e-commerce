@@ -1,13 +1,12 @@
-import 'package:arq_app/app/components/card_user_component.dart';
-import 'package:arq_app/app/components/custom_bottom_app_bar_component.dart';
-import 'package:arq_app/app/components/user_assets_component.dart';
-import 'package:arq_app/app/models/user_model.dart';
-import 'package:arq_app/app/viewmodels/profile_viewmodel.dart';
+import 'package:arq_app/components/custom_bottom_app_bar_component.dart';
+import 'package:arq_app/components/user_assets_component.dart';
+import 'package:arq_app/features/auth/domain/entities/user_entities/user_entities.dart';
+import 'package:arq_app/features/auth/presentation/views/card_user_component.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class ProfileView extends ConsumerStatefulWidget {
-  final UserModel? user;
+  final UserEntities? user;
   final bool isLogged;
   const ProfileView({super.key, this.user, this.isLogged = true});
 
@@ -18,8 +17,6 @@ class ProfileView extends ConsumerStatefulWidget {
 class _ProfileView extends ConsumerState<ProfileView> {
   @override
   Widget build(BuildContext context) {
-    final useProvider = ref.read(userViewModelProvider);
-
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.deepPurpleAccent,
@@ -56,11 +53,7 @@ class _ProfileView extends ConsumerState<ProfileView> {
                         top: 0,
 
                         child: GestureDetector(
-                          onTap: () async {
-                            await ref
-                                .read(userViewModelProvider.notifier)
-                                .setProfilePick();
-                          },
+                          onTap: () async {},
                           child: Container(
                             width: 35,
                             height: 35,

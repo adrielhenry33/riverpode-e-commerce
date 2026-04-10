@@ -1,10 +1,10 @@
-import 'package:arq_app/app/models/product_model.dart';
+import 'package:arq_app/features/products/domain/entities/product_entity.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:share_plus/share_plus.dart';
 
 class PopUpComponent extends StatefulWidget {
-  final ProductModel produto;
+  final ProductEntity produto;
   final bool showAllIcons;
 
   const PopUpComponent({
